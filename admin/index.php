@@ -68,7 +68,7 @@
 
                                 <tr>
                                     <th>{$row['vards']}</th>
-                                    <th>{$row['kontakti']}</th>
+                                    <th>{$row['uzvards']}</th>
                                     <th>{$row['adresse']}</th>
                                     <td><a href='indexedit.php?edit=<?php echo $row[klientiID] ?>'class='btn' >Edit</a>
 				                    </td>

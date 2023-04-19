@@ -106,7 +106,7 @@ header {
     background-color: #f5f5f5; 
     text-align: center;
   }
-  h1::after {
+  h1::after { /*izveido liniju zem h1*/
     content: "";
     display: block;
     width: 100%;

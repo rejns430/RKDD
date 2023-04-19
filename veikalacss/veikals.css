@@ -60,6 +60,11 @@ body {
     display: flex;
     text-align: right;
   }
+
+  #grozs {
+    margin-left: 10px;
+  }
+
   .product-grid {
     display: flex;
     flex-wrap: wrap;
