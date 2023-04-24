@@ -1,12 +1,7 @@
-main {
-    padding-top: 10rem;
-  }
-
 header {
     background-color: #d6d2d2;
     color: #c71717;
     display: flex;
-    margin-right: 9rem;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
@@ -15,101 +10,72 @@ header {
     top: 0;
     left: 0;
   }
-
-  table {
-    border-collapse: collapse;
-    margin: 50px auto 20px;
-}
-
+  
+  nav {
+    margin-right: 2rem;
+  }
+  
   nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
   }
+  
   nav li {
     margin: 0 1rem;
   }
-
+  
   h1 {
     margin: 0;
-    margin-right: 9rem;
+    margin-left: 20px;
   }
-
+  
   .Pievienoties {
     margin-left: auto;
-    margin-right: 10rem;
+    margin-right: 2rem;
     color: #2e1e1e;
     border: 1px solid black;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-      background-color: #c71717;
-      margin-right: 9rem;
+    background-color: #c71717;
   }
-
+  
   nav a {
     color: #2e1e1e;
     text-decoration: none;
   }
-
+  
   .grozs {
     align-items: center;
     justify-items: left;
+    padding-left: 2rem;
+  }
+  
+  span{
+    margin-left: 20px;
   }
 
-  a{
-    justify-content: space-between;
-    align-items: right;
-    color: #2e1e1e;
-    text-decoration: none;
-    margin: 0 1rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    text-align: right;
+  table
+  {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+    height: 100%;
+    font-size: 1.2rem;
+  }
+  th
+  {
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+  }
+  td
+  {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
   }
 
-table {
-	border-collapse: collapse;
-	margin: 20px auto;
-}
-
-th, td {
-	border: 1px solid #ddd;
-	padding: 10px;
-	text-align: center;
-}
-
-th {
-	background-color: #f2f2f2;
-}
-
-tr:nth-child(even) {
-	background-color: #f2f2f2;
-}
-
-tr:last-child {
-	font-weight: bold;
-}
-
-a {
-	background-color: #4CAF50;
-	border: none;
-	color: #fff;
-	cursor: pointer;
-	padding: 10px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	margin: 20px;
-}
-
-img {
-    width: 4rem;
-    height: 4rem;
-  }
-
-a:hover {
-	background-color: #3e8e41;
-}
+  tr:nth-child(even){background-color: #aaa;}

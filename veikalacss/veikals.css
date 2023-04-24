@@ -29,7 +29,7 @@ body {
 
   h1 {
     margin: 0;
-    margin-right: 9rem;
+    margin-left: 20px;
   }
 
   .Pievienoties {
@@ -51,6 +51,10 @@ body {
   .grozs {
     align-items: center;
     justify-items: left;
+    padding-left: 20rem;
+  }
+  span{
+    margin-left: 20px;
   }
 
   a{
@@ -82,20 +86,19 @@ body {
   }
 
   section.product-grid {
-    
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    text-align: center; /* Add this line to center all products */
+    text-align: center;
   }
   
-  
-
   main {
     padding: 2rem;
+    
   }
+
   footer {
-        position: fixed;
+        position: static;
         bottom: 0;
         width: 100%;
         background-color: #333;
