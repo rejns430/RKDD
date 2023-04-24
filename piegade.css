@@ -116,6 +116,29 @@ header {
     margin-bottom: 10px;
   }
 
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .column {
+    flex-basis: calc(50% - 10px);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .column {
+      flex-basis: 100%;
+    }
+  }
+
   @media (max-width: 600px) {
     header {
       flex-direction: column;
