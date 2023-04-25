@@ -36,8 +36,9 @@ $result = mysqli_query($savienojums, $join);
         <option value="category1">R16</option>
         <option value="category2">R19</option>
         <option value="category3">R17</option>
-        <button type="submit">Meklēt</button>
+        
     </select>
+    <button type="submit">Meklēt</button>
     <main>
          <section class='product-grid'>
             <?php

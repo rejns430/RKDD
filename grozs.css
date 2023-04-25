@@ -2,17 +2,15 @@ header {
     background-color: #d6d2d2;
     color: #c71717;
     display: flex;
+    margin-right: 9rem;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    position: fixed;
+    padding-top: 20px;
+    position: static;
+    height: 80px;
     width: 100%;
     top: 0;
     left: 0;
-  }
-  
-  nav {
-    margin-right: 2rem;
   }
   
   nav ul {
@@ -28,34 +26,24 @@ header {
   
   h1 {
     margin: 0;
-    margin-left: 20px;
+    margin-right: 9rem;
   }
   
   .Pievienoties {
     margin-left: auto;
-    margin-right: 2rem;
+    margin-right: 10rem;
     color: #2e1e1e;
     border: 1px solid black;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     background-color: #c71717;
+    margin-right: 9rem;
   }
   
   nav a {
     color: #2e1e1e;
     text-decoration: none;
   }
-  
-  .grozs {
-    align-items: center;
-    justify-items: left;
-    padding-left: 2rem;
-  }
-  
-  span{
-    margin-left: 20px;
-  }
-
   table
   {
     margin: 30px auto;
