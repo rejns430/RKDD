@@ -89,6 +89,18 @@ a {
   margin-bottom: 2rem;
 }
 
+hr{
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 2rem 0;
+}
+
+.cigans{
+  border-left: #000000, 1px;
+  border:1px;
+}
+
 iframe {
   border: 0;
   width: 100%;
