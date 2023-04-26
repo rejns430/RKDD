@@ -1,3 +1,4 @@
+<?php include('header.php'); ?>
 <?php
 require("php/connect_db.php");
 $join = "SELECT produkts.produkts_ID, nosaukums, bilde, cena, summa, kategorijasvards
@@ -17,19 +18,6 @@ $result = mysqli_query($savienojums, $join);
     <link rel="stylesheet" href="grozs.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Par</a></li>
-                <li><a href="#">Apmaksa</a></li>
-                <li><a href="piegade.html">Piegāde</a></li>
-                <li><a href="#">Kontakti</a></li>
-            </ul>
-        </nav>
-        <a class="Pievienoties" href="login1.php">Pievienoties</a>
-        <a href="grozs.php" class="grozs"><span>&#x1f6d2;</span></a>
-        <h1><a href="veikals.php">RKDD</h1></a>
-    </header>
     <table>
         <thead>
             <tr>

@@ -171,6 +171,30 @@ main {
   padding: 2rem;
 }
 
+.site-search-module{
+  position:absolute;
+  left:100px;
+  width: 100%;
+}
+.site-search-module-inside{
+  padding:15px 15px;
+  height:210px;
+  background:#FF7733;
+  border-top:3px solid rgba(163, 59, 59, 0.8);
+}
+.site-search-module-inside .btn{
+  padding-top:14px;
+  padding-bottom:12px;
+}
+.site-search-module-inside .selectpicker.btn{
+  padding-top:12px;
+}
+#ads-trigger{
+  display:inline-block;
+  padding-top:11px;
+  padding-bottom:11px;
+}
+
 footer {
   position: static;
   bottom: 0;
@@ -180,6 +204,29 @@ footer {
   text-align: center;
   padding: 1rem;
 }
+.karstakie{
+  justify-content: center;
+}
+
+.hero{
+  min-height: 500px;
+  background-image: url('../atteli/hero.png');
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: static;
+  }
+
+.pidars{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 
 /* Responsive styles */
 @media (max-width: 600px) {
