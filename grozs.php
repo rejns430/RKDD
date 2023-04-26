@@ -3,7 +3,7 @@ require("php/connect_db.php");
 $join = "SELECT produkts.produkts_ID, nosaukums, bilde, cena, summa, kategorijasvards
 FROM produkts
 INNER JOIN kategorijas
-ON produkts.kategorijasveids = kategorijas.kategorijaID";
+ON produkts.produkts_ID = kategorijas.kategorijaID";
 $result = mysqli_query($savienojums, $join);          
 ?>             
 
@@ -43,11 +43,13 @@ $result = mysqli_query($savienojums, $join);
         <tbody>
             <?php
             // Saliek produktus un to cenas tabulā
+            
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
+                    $bilde = base64_encode($row['bilde']);
                     echo "<tr>";
                     echo "<td>" . $row["nosaukums"] . "</td>";
-                    echo "<td><img src='" . $row["bilde"] . "'></td>";
+                    echo "<td><img src='" . $bilde . "'></td>";
                     echo "<td>" . $row["cena"] . "</td>";
                     echo "<td>" . $row["summa"] . "</td>";
                     echo "<td>" . $row["kategorijasvards"] . "</td>";
