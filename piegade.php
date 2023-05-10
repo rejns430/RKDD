@@ -1,3 +1,6 @@
+<?php include('header.php'); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,19 +11,6 @@
     <link rel="stylesheet" href="piegade.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="veikals.php">Veikals</a></li>
-          <li><a href="#">Apmaksa</a></li>
-          <li><a href="#">Piegāde</a></li>
-          <li><a href="#">Kontakti</a></li>
-        </ul>
-      </nav>
-      <a class="Pievienoties" href="login1.php">Pievienoties</a>
-      <a href="grozs.php" class="grozs"><span>&#x1f6d2;</span></a>
-        <h1><a href="veikals.php">RKDD</h1></a>
-    </header>
     <div class="container cigans">
       <div class="row">
         <div class="column">

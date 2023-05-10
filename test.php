@@ -42,22 +42,6 @@ $result7 = mysqli_query($savienojums, $join);
 </div>
 </div>
 </form>
-
-<?php
-            if (!$result) {
-                die('Query failed: ' . mysqli_error($savienojums));
-              }
-        while ($row = mysqli_fetch_assoc($result)) {
-            
-         $nosaukums = $row['nosaukums'];
-         $bilde = base64_encode($row['bilde']);
-         $cena = $row['cena'];
-        echo "<img pidars src='data:image/jpeg;base64,".$bilde."'height=300 width=250'>";
-        echo "<h2>".$nosaukums."</h2>";
-        echo "<h2>".$cena."</h2>";
-    }
-     ?>
-
     <div class="container col-md-12">
         <div class="karstakie">
             
@@ -65,17 +49,31 @@ $result7 = mysqli_query($savienojums, $join);
                 <div class="virsraksts">
                     <h2>Mūsu Lētākie pidāvājumi</h2>
                 </div>
+            </div>
+        </div> 
+        <div class="container">
+  <?php
+   $sql = "SELECT * FROM produkts ORDER BY cena ASC LIMIT 2";
+   $result = mysqli_query($savienojums, $sql);
+   if (!$result) {
+     die('Query failed: ' . mysqli_error($savienojums));
+   }
+   while ($row = mysqli_fetch_assoc($result)) {
+     $nosaukums = $row['nosaukums'];
+     $bilde = base64_encode($row['bilde']);
+     $cena = $row['cena'];
+     echo "<img pidars src='data:image/jpeg;base64,".$bilde."'height=300 width=250'>";
+     echo "<h2>".$nosaukums."</h2>";
+     echo "<h2>".$cena."</h2>";
+   }
+  ?>
+</div>
+
+    
                 <div class="row">
-                <div class="col-md-6 col-sm-6 izceltais_bloks"> <img src="/CarK/assets/Bildes/Auto/audars.png"
-                        alt="audars" class="izcelta_bilde">
-                    <h3>Kvalitatīvs serviss</h3>
-                    <p>Riepas ar protektoriem</p>
-                </div>
                 <div class="col-md-12 " id="poga_uz_misenem">
                     <a href="katalogs.php">
                         <button>Apskati visas mūsu piedāvājumus</button>
-                    </a>                                        
-                </div>
-            </div>                                                    
+                    </a>                                                                                         
         </div>
     </div>

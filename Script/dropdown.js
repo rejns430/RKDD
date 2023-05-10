@@ -10,7 +10,7 @@ $('select').on('change', function() {
   var screws = $('#filter5').val();
   var distance = $('#filter6').val();
 
-  // filter the items based on the selected options
+  // filret produktus pec izveletajime kriterijiem
   for (var i = 0; i < items.length; i++) {
     if (
       (radius == 'all' || items[i].getAttribute('data-radius') == radius) &&
@@ -20,10 +20,10 @@ $('select').on('change', function() {
       (screws == 'all' || items[i].getAttribute('data-screws') == screws) &&
       (distance == 'all' || items[i].getAttribute('data-distance') == distance)
     ) {
-      // show the item
+      // parada produktu
       items[i].style.display = 'block';
     } else {
-      // hide the item
+      // paslepj produktu
       items[i].style.display = 'none';
     }
   }

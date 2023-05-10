@@ -1,5 +1,6 @@
 <?php include('header.php'); ?>
 <?php
+
 require("php/connect_db.php");
 $join = "SELECT produkts.produkts_ID, nosaukums, bilde, cena, summa, kategorijasvards
 FROM produkts

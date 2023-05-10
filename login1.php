@@ -31,7 +31,7 @@
                   }
               }
           }else{
-              echo "<div class='error'><i class='fas fa-exclamation-circle'></i> Nepareizs lietotājvārds vai parole! 2 </div>";
+              echo "<div class='error'><i class='fas fa-exclamation-circle'></i> Nepareizs lietotājvārds vai parole!  </div>";
           }
       }
 
