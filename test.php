@@ -64,15 +64,16 @@ $result7 = mysqli_query($savienojums, $join);
                 </div>
             </div>
         </div>
-    </form>
-</div>
-    
-<div class="row">
+        <div class="row">
     <div class="col-md-12" id="UzKatalogu">
         <a href="katalogs.php">
             <button class="btn btn-danger">Apskati visas mūsu piedāvājumus</button>
         </a>
     </div>
+    </form>
+</div>
+    
+
 </div>                                                                                    
 </div>
 </div>

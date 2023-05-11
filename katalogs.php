@@ -149,4 +149,5 @@ $result7 = mysqli_query($savienojums, $join);
         </div>
     </div>
     <body>
+    <?php include('footer.php'); ?>
 </html>
