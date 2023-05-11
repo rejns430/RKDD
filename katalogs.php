@@ -30,12 +30,13 @@ $result7 = mysqli_query($savienojums, $join);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
+<body>
 <!--Sākas lapa-->
 <div class="main" role="main">
     <section class="hero">
         <div class="hero-content">
-            <h1>Veikals</h1>
-            <p>šis lauks nav svarīgs</p>
+            <h1>Katalogs</h1>
+            <p>Visas preces kas ir pieejamas noliktavā</p>
 
         </div>
     </section>
@@ -136,13 +137,16 @@ $result7 = mysqli_query($savienojums, $join);
         $bilde = base64_encode($row['bilde']);
         $cena = $row['cena'];
         $produkts_ID = $row['produkts_ID'];
+        $euro_cena = round($cena * 0.85, 2); //pārveido cenas no doalriem uz eiro
         echo "<div class='product'>";
         echo "<img src='data:image/jpeg;base64,".$bilde."' height='300' width='250'>";
         echo "<h2>".$nosaukums."</h2>";
-        echo "<h2>".$cena."</h2>";
+        echo "<h2>".$euro_cena." €</h2>"; // Parāda eiro cenas
         echo "<a href='grozs.php?produkts_ID=".$produkts_ID."' class='pievienot-grozam'>Pievienot grozam</a>";
         echo "</div>";
     }
 ?>
+        </div>
     </div>
-</div>
+    <body>
+</html>

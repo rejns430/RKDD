@@ -30,50 +30,53 @@ $result7 = mysqli_query($savienojums, $join);
 <!--Sākas lapa-->
 <div class="main" role="main">
     <section class="hero">
-        <div class="hero-content">
-            <h1>Veikals</h1>
-            <p>šis lauks nav svarīgs</p>
-
-        </div>
+        <div class="hero-content text-center">
+        <h1>Visi jaunumi</h1>
+        <p>Izmaiņas un piedāvājumi</p>
+    </div>
     </section>
     <form method="POST" action="filter.php">
-</div>
-</div>
-</div>
-</div>
-</form>
-    <div class="container col-md-12">
-        <div class="karstakie">
-            
-            <div class="container">
-                <div class="virsraksts">
-                    <h2>Mūsu Lētākie pidāvājumi</h2>
+        <div class="container col-md-12">
+            <div class="karstakie">
+                <div class="container">
+                    <div class="virsraksts text-center mb-3">
+                        <h2>Mūsu Lētākie pidāvājumi</h2>
+                    </div>
+                </div> 
+                <div class="container d-flex justify-content-center border border-3">
+                    <?php
+                     $sql = "SELECT * FROM produkts ORDER BY cena ASC LIMIT 2";
+                     $result = mysqli_query($savienojums, $sql);
+                     if (!$result) {
+                       die('Query failed: ' . mysqli_error($savienojums));
+                     }
+                     while ($row = mysqli_fetch_assoc($result)) {
+                       $nosaukums = $row['nosaukums'];
+                       $bilde = base64_encode($row['bilde']);
+                       $cena = $row['cena'];
+                       echo "<div class='text-center'>";
+                       echo "<img pidars src='data:image/jpeg;base64,".$bilde."'height=300 width=250'>";
+                       echo "<h2>".$nosaukums."</h2>";
+                       echo "<h2>".$cena."</h2>";
+                       echo "</div>";
+                     }
+                    ?>
                 </div>
             </div>
-        </div> 
-        <div class="container">
-  <?php
-   $sql = "SELECT * FROM produkts ORDER BY cena ASC LIMIT 2";
-   $result = mysqli_query($savienojums, $sql);
-   if (!$result) {
-     die('Query failed: ' . mysqli_error($savienojums));
-   }
-   while ($row = mysqli_fetch_assoc($result)) {
-     $nosaukums = $row['nosaukums'];
-     $bilde = base64_encode($row['bilde']);
-     $cena = $row['cena'];
-     echo "<img pidars src='data:image/jpeg;base64,".$bilde."'height=300 width=250'>";
-     echo "<h2>".$nosaukums."</h2>";
-     echo "<h2>".$cena."</h2>";
-   }
-  ?>
-</div>
-
-    
-                <div class="row">
-                <div class="col-md-12 " id="poga_uz_misenem">
-                    <a href="katalogs.php">
-                        <button>Apskati visas mūsu piedāvājumus</button>
-                    </a>                                                                                         
         </div>
+    </form>
+</div>
+    
+<div class="row">
+    <div class="col-md-12" id="UzKatalogu">
+        <a href="katalogs.php">
+            <button class="btn btn-danger">Apskati visas mūsu piedāvājumus</button>
+        </a>
     </div>
+</div>                                                                                    
+</div>
+</div>
+</body>
+<?php include('footer.php'); ?>
+</html>
+

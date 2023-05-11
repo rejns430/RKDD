@@ -1,0 +1,11 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+footer{
+    background-color: brown;
+}
+hr{
+    background-color: white;
+    height: 2px;
+    width: 100%;
+}
