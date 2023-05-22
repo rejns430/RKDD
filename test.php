@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include('../header.php'); ?>
 <?php
 require("php/connect_db.php");
 $join = "SELECT radiuss, platums, augstums, atrums, skruves, skr_attal, produkts.produkts_ID, nosaukums, bilde, kategorijasvards, kategorijasveids, cena
@@ -31,9 +31,9 @@ $result7 = mysqli_query($savienojums, $join);
 <div class="main" role="main">
     <section class="hero">
         <div class="hero-content text-center">
-        <h1>Visi jaunumi</h1>
-        <p>Izmaiņas un piedāvājumi</p>
-    </div>
+            <h1>Visi jaunumi</h1>
+            <p>Izmaiņas un piedāvājumi</p>
+        </div>
     </section>
     <form method="POST" action="filter.php">
         <div class="container col-md-12">
@@ -42,7 +42,7 @@ $result7 = mysqli_query($savienojums, $join);
                     <div class="virsraksts text-center mb-3">
                         <h2>Mūsu Lētākie pidāvājumi</h2>
                     </div>
-                </div> 
+                </div>
                 <div class="container d-flex justify-content-center border border-3">
                     <?php
                      $sql = "SELECT * FROM produkts ORDER BY cena ASC LIMIT 2";
@@ -65,19 +65,19 @@ $result7 = mysqli_query($savienojums, $join);
             </div>
         </div>
         <div class="row">
-    <div class="col-md-12" id="UzKatalogu">
-        <a href="katalogs.php">
-            <button class="btn btn-danger">Apskati visas mūsu piedāvājumus</button>
-        </a>
-    </div>
+            <div class="col-md-12" id="UzKatalogu">
+                <a href="katalogs.php">
+                    <button class="btn btn-danger">Apskati visas mūsu piedāvājumus</button>
+                </a>
+            </div>
     </form>
 </div>
-    
 
-</div>                                                                                    
+
+</div>
 </div>
 </div>
 </body>
-<?php include('footer.php'); ?>
-</html>
+<?php include('../footer.php'); ?>
 
+</html>

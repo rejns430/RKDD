@@ -36,10 +36,10 @@ if (isset($_POST['save'])) {
 
 		if (mysqli_query($savienojums, $rediget_sql)){
             echo"<div class='pazinojums zals'>Rediģēšana izdevusies veiksmīgi!</div>";
-            header("Refresh:2; url=index.php");
+            header("Refresh:2; url=klienti.php");
         } else{
         echo "<div class='pazinojums sarkans'>Rediģēšana neizdevās!</div>";
-        header("Refresh:2; url=index.php"); 
+        header("Refresh:2; url=klienti.php"); 
         }
 	}
     ?>

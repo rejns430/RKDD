@@ -11,9 +11,14 @@
     <title>RKDD</title>
   </head>
   <body>
+  <style>
+      footer {
+        background-color: #343a40;
+      }
+    </style>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a href="#" class="navbar-brand mb-0 h1">
-        <img class="d-inline-block align-top" src="atteli\logotaskbar.png" width="50" height="50">
+        <img class="d-inline-block align-top" src="..\atteli\logotaskbar.png" width="50" height="50">
     </a>
     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
