@@ -14,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     
     if (isset($_POST["Atfiltrēt"])) {
-        // Clear the filter criteria
         $lowerPrice = "";
         $upperPrice = "";
     }
@@ -22,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 $query = "SELECT * FROM produkts";
 
-// Add filter condition when searching products by price range
 if (!empty($lowerPrice) && !empty($upperPrice)) {
     $query .= " WHERE cena BETWEEN $lowerPrice AND $upperPrice";
 }

@@ -24,7 +24,7 @@ $total_produkts = mysqli_num_rows($result_produkts);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
   </head>
   <body>
-    <!-- Paráda visus klientus un produktus -->
+
     <div class="container">
       <h1>Statuss</h1>
       <div class="card">

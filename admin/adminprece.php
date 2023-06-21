@@ -31,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $insertSql = "INSERT INTO produkts (nosaukums, apraksts, cena, veids, skruves, attalums, bilde) VALUES ('$nosaukums', '$apraksts', '$cena', '$veids', '$skruves', '$attalums', '$bilde')";
         if (mysqli_query($savienojums, $insertSql)) {
-            // Redirect after 2 seconds
             echo "<script>
                 setTimeout(function() {
                     window.location.href = 'edit_preci.php';

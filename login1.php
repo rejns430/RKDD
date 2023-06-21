@@ -11,12 +11,12 @@ if (isset($_POST["autorizacija"])) {
         while ($row = mysqli_fetch_array($rezultats)) {
             if (password_verify($Parole, $row["parole"])) {
                 $_SESSION["lietotajvards"] = $lietotajvards;
-                $_SESSION["role"] = $row["role"]; // Store the role in session
+                $_SESSION["role"] = $row["role"]; 
                 
                 if ($row["role"] == "admin") {
-                    header("Location: klienti.php"); // Redirect admin to klienti.php
+                    header("Location: klienti.php"); 
                 } else {
-                    header("Location: katalogs.php"); // Redirect user to katalogs.php
+                    header("Location: katalogs.php"); 
                 }
                 exit();
             } else {

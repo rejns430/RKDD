@@ -10,13 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $veids = $_POST["veids"];
     $bilde = $_FILES["image"];
 
-    // Process image file
     $mērķaDirektorija = "admin/preccesbildes"; // Saglabā attēlus attēla mapiņā
     $mērķaFails = $mērķaDirektorija . basename($bilde["name"]);
 
     // Pārbauda, vai ir augšupielādēts attēls
     if (!empty($bilde["tmp_name"])) {
-        // Pārvērš attēlu par base64 kodētu stringu
+        // Enkodo attēlus base64
         $base64Image = base64_encode(file_get_contents($bilde["tmp_name"]));
 
         // Atjauno datubāzi
