@@ -29,7 +29,7 @@
             <label for="vards">Vārds</label>
             <input id="vards" type="text" class="form-control" placeholder="Vārds" required>
             <div class="invalid-feedback">
-                Ievadiet vārdu<!--Obligāti jaaizpilda lauks-->
+                Ievadiet vārdu
             </div>
 				</div>
 				<div class="col-sm-5">
@@ -37,7 +37,7 @@
             <label for="uzvards">Uzvārds</label>
             <input id="uzvards" type="text" class="form-control" placeholder="Uzvārds" required>
             <div class="invalid-feedback">
-                Ievadiet vārdu<!--Obligāti jaaizpilda lauks-->
+                Ievadiet vārdu
             </div>
 				</div>
 			</div>

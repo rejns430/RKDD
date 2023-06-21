@@ -1,4 +1,4 @@
-<?php include('../header1.php'); ?>
+<?php include('adminheader.php'); ?>
 <!doctype html>
 <html lang="en">
 
@@ -78,4 +78,3 @@
 </body>
 
 </html>
-<?php include('../footer1.php'); ?>

@@ -11,13 +11,13 @@
 
     <title>RKDD</title>
   </head>
-  <body class="bg-dark">
+  <body>
   <footer class="text-white">
     <div class="container-fluid pt-5 pb-5">
         <div class="row">
             <div class="col-md-1">
                 <div class="col-md-1">
-                <img src="../atteli/RKDD.png" width="250px" height="130px"/>
+                <img src="atteli/RKDD.png" width="250px" height="130px"/>
             </div>
             </div>
             <div class="col-md-3">

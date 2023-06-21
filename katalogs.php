@@ -1,153 +1,109 @@
-<?php include('header.php'); ?>
+<?php include('header1.php')?>
 <?php
 require("php/connect_db.php");
-$join = "SELECT radiuss, platums, augstums, atrums, skruves, skr_attal, produkts.produkts_ID, nosaukums, bilde, kategorijasvards, kategorijasveids, cena
-FROM produkts
-INNER JOIN kategorijas
-ON produkts.produkts_ID = kategorijas.kategorijaID
-INNER JOIN diskapar
-ON produkts.produkts_ID = diskapar.diskapar_id";
-$result = mysqli_query($savienojums, $join);   
-$result2 = mysqli_query($savienojums, $join);
-$result3 = mysqli_query($savienojums, $join);   
-$result4 = mysqli_query($savienojums, $join);
-$result5 = mysqli_query($savienojums, $join);   
-$result6 = mysqli_query($savienojums, $join);
-$result7 = mysqli_query($savienojums, $join);          
-   ?>
+
+$lowerPrice = "";
+$upperPrice = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST["lower_price"])) {
+        $lowerPrice = $_POST["lower_price"];
+    }
+    if (isset($_POST["upper_price"])) {
+        $upperPrice = $_POST["upper_price"];
+    }
+    
+    if (isset($_POST["Atfiltrēt"])) {
+        // Clear the filter criteria
+        $lowerPrice = "";
+        $upperPrice = "";
+    }
+}
+
+$query = "SELECT * FROM produkts";
+
+// Add filter condition when searching products by price range
+if (!empty($lowerPrice) && !empty($upperPrice)) {
+    $query .= " WHERE cena BETWEEN $lowerPrice AND $upperPrice";
+}
+
+$result = mysqli_query($savienojums, $query);
+
+if (!$result) {
+    die('Query failed: ' . mysqli_error($savienojums));
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <script>
-        
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RKDD</title>
     <link rel="stylesheet" href="veikalacss/veikals.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
-<body>
-<!--Sākas lapa-->
-<div class="main" role="main">
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Katalogs</h1>
-            <p>Visas preces kas ir pieejamas noliktavā</p>
 
-        </div>
-    </section>
-    <form method="POST" action="filter.php">
-        <main>
-            <section class='product-grid'>
-                <div class="site-search-module">
-                    <div class="container">
-                        <div class="site-search-module-inside">
-                            <form action="#">
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <select name="propery contract type"
-                                                class="form-control input-lg selectpicker">
-                                                <label>Riepu augstums</label>
-                                                <option selected>Augstums</option>
-                                                <?php
-                                                //Izvelk no datubazes augstumu
-                                                if (mysqli_num_rows($result4) > 0) {
-                                                while ($row = mysqli_fetch_assoc($result4)) {
-                                               echo '<option value="' . $row['augstums'] . '">' . $row['augstums'] . '</option>';
-                                                    }
-                                                }
-                                            ?>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <select name="propery location" class="form-control input-lg selectpicker">
-                                                <option selected>Skrūvju skaits</option>
-                                                <?php
-                                                //Izvelk no datubazes skrūves
-                                                if (mysqli_num_rows($result6) > 0) {
-                                                while ($row = mysqli_fetch_assoc($result6)) {
-                                                echo '<option value="' . $row['skruves'] . '">' . $row['skruves'] . '</option>';
-                                                    }
-                                                }
-                                            ?>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-2"> <button type="submit"
-                                                class="btn btn-primary btn-block btn-lg"><i class="fa fa-search"></i>
-                                                Meklēt</button> </div>
+<body class="bg-secondary">
+    <div class="main" role="main">
+        <section class="hero">
+            <div class="hero-content text-center">
+                <h1>Katalogs</h1>
+                <p>Visas preces, kas ir pieejamas noliktavā</p>
+            </div>
+        </section>
+        <div class="container-filter">
+            <div class="row">
+                <div class="col-md-4">
+                    <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+                        <div class="mb-3">
+                            <label for="lower_price" class="form-label">Min cena</label>
+                            <input type="number" name="lower_price" id="lower_price" class="form-control" value="<?php echo $lowerPrice; ?>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="upper_price" class="form-label">Max cena</label>
+                            <input type="number" name="upper_price" id="upper_price" class="form-control" value="<?php echo $upperPrice; ?>">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Filtrēt</button>
+                        <?php if (!empty($lowerPrice) || !empty($upperPrice)) : ?>
+                            <button type="submit" class="btn btn-danger" name="Atfiltrēt">Atfiltrēt</button>
+                        <?php endif; ?>
+                    </form>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <?php
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $nosaukums = $row['nosaukums'];
+                                $bilde = base64_encode($row['bilde']);
+                                $cena = $row['cena'];
+                                $produkts_ID = $row['produkts_ID'];
+                                $euro_cena = round($cena * 0.85, 2);
+                                ?>
+                                <div class="col-md-4">
+                                    <div class="product">
+                                    <a href="produktaapsk.php?produkts_ID=<?php echo $produkts_ID; ?>">
+                                        <img src="data:image/jpeg;base64,<?php echo $bilde; ?>" alt="<?php echo $nosaukums; ?>" class="product-image">
+                                        <h2 class="product-name"><?php echo $nosaukums; ?></h2>
+                                        <h2 class="product-price"><?php echo $euro_cena; ?> €</h2>
+                                        <a href="grozs.php?produkts_ID=<?php echo $produkts_ID; ?>" class="btn btn-primary">Pievienot grozam</a>
                                     </div>
-                                    <div class="row hidden-xs hidden-sm">
-                                        <div class="col-md-2">
-                                        <option>Any</option>
-                                            <select name="beds" class="form-control input-lg selectpicker">
-                                            <?php
-                                            // Izvelk no datubazes radiuss
-                                            if (mysqli_num_rows($result2) > 0) {
-                                            while ($row = mysqli_fetch_assoc($result2)) {
-                                            echo '<option value="' . $row['radiuss'] . '">' . $row['radiuss'] . '</option>';
-                                                    }
-                                                }
-                                            ?>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label>Riepu platums</label>
-                                            <select name="beds" class="form-control input-lg selectpicker">
-                                                <option>Any</option>
-                                                <?php
-                                                //Izvelk no datubazes platumu
-                                                if (mysqli_num_rows($result3) > 0) {
-                                                while ($row = mysqli_fetch_assoc($result3)) {
-                                                echo '<option value="' . $row['platums'] . '">' . $row['platums'] . '</option>';
-                                                    }
-                                                }
-                                            ?>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label>Skrūvju attālums</label>
-                                            <select name="beds" class="form-control input-lg selectpicker">
-                                                <?php
-                                                //Izvelk no datubazes Skrūvju attālumu
-                                                if (mysqli_num_rows($result7) > 0) {
-                                                while ($row = mysqli_fetch_assoc($result7)) {
-                                                echo '<option value="' . $row['skr_attal'] . '">' . $row['skr_attal'] . '</option>';
-                                                    }
-                                                }
-                                            ?>
-        </main>
-        </select>
-</div>
-</div>
-</div>
-</div>
-</form>
-<div class="filtrs-conainer">
-<?php
-    if (!$result) {
-        die('Query failed: ' . mysqli_error($savienojums));
-    }
-    while ($row = mysqli_fetch_assoc($result)) {
-        $nosaukums = $row['nosaukums'];
-        $bilde = base64_encode($row['bilde']);
-        $cena = $row['cena'];
-        $produkts_ID = $row['produkts_ID'];
-        $euro_cena = round($cena * 0.85, 2); //pārveido cenas no doalriem uz eiro
-        echo "<div class='product'>";
-        echo "<img src='data:image/jpeg;base64,".$bilde."' height='300' width='250'>";
-        echo "<h2>".$nosaukums."</h2>";
-        echo "<h2>".$euro_cena." €</h2>"; // Parāda eiro cenas
-        echo "<a href='grozs.php?produkts_ID=".$produkts_ID."' class='pievienot-grozam'>Pievienot grozam</a>";
-        echo "</div>";
-    }
-?>
+                                </div>
+                                <?php
+                            }
+                        } else {
+                            echo "Pašlaik nav neviena produkta!";
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <body>
-    <?php include('footer.php'); ?>
+    <?php include('footer1.php'); ?>
+</body>
+
 </html>

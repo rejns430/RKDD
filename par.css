@@ -1,0 +1,147 @@
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back {
+  background-color: rgb(255, 0, 0);
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-text {
+  text-align: center;
+}
+
+.image-container {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.alert {
+  margin-bottom: 1rem;
+}
+
+.alert-secondary {
+  color: #464a4e;
+  background-color: #e2e3e5;
+  border-color: #d3d6d8;
+}
+
+.alert p {
+  margin-bottom: 0;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 576px) {
+  .flip-card {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .image-container {
+    max-height: 200px;
+  }
+}
+
+/* Adjustments for larger screens */
+@media (min-width: 992px) {
+  .flip-card {
+    max-width: 290px;
+    height: 380px;
+  }
+  
+  .image-container {
+    max-height: 190px;
+  }
+}
